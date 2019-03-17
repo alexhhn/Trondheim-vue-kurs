@@ -1,27 +1,54 @@
 <template>
   <div class="hello">
+    <img src height="150" width="150">
     <h1>Ola Norman</h1>
-    <img
-      src="https://media.licdn.com/dms/image/C4E03AQFuI-9ceWkKoA/profile-displayphoto-shrink_200_200/0?e=1553126400&v=beta&t=ml21h12q2Owvl-2vywvuHjcs3rWvwCFw0h65YLZQfZY"
-      height="150"
-      width="150"
-    >
-    <CVArea header="Erfaringer" title="Amazon" subTitle="CEO" text="Beste CEO Amazon har hatt"/>
-    <CVArea header="Verv" title="MC Donalds" subTitle="Servicearbeider" text="Årets ansatt 7 år på rad"/>
-    <CVArea header="Utdanning" title="NTNU" subTitle="Fulgetitter" text="Ekspert på fulger"/>
+    <p>IT Konsulent</p>
+
+    <div v-for="area in areas" :key="area.id">
+      <CVArea
+        :header="area.header"
+        :title="area.title"
+        :subTitle="area.subTitle"
+        :text="area.text"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import CVArea from "./CVArea.vue";
-
+import Pic from "../assets/ola.jpeg";
 export default {
   name: "CV",
+  data() {
+    return {
+      areas: [
+        {
+          id: 1,
+          header: "Erfaringer",
+          title: "Amazon",
+          subTitle: "CEO",
+          text: "Beste CEO Amazon har hatt"
+        },
+        {
+          id: 2,
+          header: "Verv",
+          title: "MC Donalds",
+          subTitle: "Servicearbeider",
+          text: "Årets ansatt 7 år på rad"
+        },
+        {
+          id: 3,
+          header: "Utdannning",
+          title: "NTNU",
+          ubTitle: "Fulgetitter",
+          text: "Ekspert på fulger"
+        }
+      ]
+    };
+  },
   components: {
     CVArea
-  },
-  props: {
-    msg: String
   }
 };
 </script>
@@ -33,22 +60,19 @@ export default {
   align-self: center;
 }
 
+h1 {
+  margin: 10px 0;
+}
+
+p {
+  margin: 5px 0 10px 0;
+}
 img {
   border-radius: 50%;
 }
 
 h3 {
   margin: 40px 0 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
 }
 
 a {
