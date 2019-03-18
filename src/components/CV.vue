@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <img src height="150" width="150">
+    <img :src="avatar" height="150" width="150">
     <h1>Ola Norman</h1>
     <p>IT Konsulent</p>
 
@@ -17,11 +17,12 @@
 
 <script>
 import CVArea from "./CVArea.vue";
-import Pic from "../assets/ola.jpeg";
+import Pic from "@/assets/ola.jpeg";
 export default {
   name: "CV",
   data() {
     return {
+      avatar: Pic,
       areas: [
         {
           id: 1,
@@ -57,7 +58,6 @@ export default {
 <style scoped>
 .hello {
   width: 60%;
-  align-self: center;
 }
 
 h1 {
